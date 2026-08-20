@@ -217,7 +217,7 @@ def main():
             print(f"  [{done}/{len(problematic)}] {rate:.1f} q/s, ETA {eta:.0f}s, cleaned={completed}, failed={failed}, with_answers={with_ans}", flush=True)
         
         # Rate limit: 1.5s between calls
-        time.sleep(1.5)
+        time.sleep(10)
     
     # Final save
     with open(INPUT, 'w', encoding='utf-8') as f:
