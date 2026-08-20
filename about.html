@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &middot; GK GS Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">📚</div>
+      <span>GK GS Analysis</span>
+    </a>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="">Home</a></li>
+<li><a href="history.html" class="">History</a></li>
+<li><a href="geography.html" class="">Geography</a></li>
+<li><a href="polity.html" class="">Polity</a></li>
+<li><a href="economics.html" class="">Economics</a></li>
+<li><a href="science.html" class="">General Science</a></li>
+<li><a href="static-gk.html" class="">Static GK</a></li>
+<li><a href="current-affairs.html" class="">Current Affairs</a></li>
+<li><a href="uncategorized.html" class="">Uncategorized</a></li>
+<li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding: 3rem 1.5rem 4rem;">
+  <div class="hero-content">
+    <div class="hero-badge"><span>ℹ️</span> About</div>
+    <h1>About This Project</h1>
+    <p>A data-driven analysis of SSC CGL Tier 1 General Awareness questions, organized for smart preparation.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Overview</h2>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+    This website presents a structured analysis of 965 General Awareness (GK/GS) questions 
+    from the SSC CGL Tier 1 examination held in September-October 2025. Every question has been categorized 
+    into one of 8 major subjects and further classified into 82 
+    sub-topics, giving you a granular view of what SSC actually asks.
+  </p>
+
+  <h2 class="section-title" style="margin-top: 2.5rem;">Methodology</h2>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem;">
+    The analysis was performed in the following steps:
+  </p>
+  <ol style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
+    <li><strong>Source PDF:</strong> The official SSC CGL Tier 1 question paper PDF (488 pages, bilingual English/Hindi) was downloaded from Google Drive.</li>
+    <li><strong>OCR Extraction:</strong> Each page was rendered at 150 DPI and processed with Tesseract OCR (English language mode) to extract text. Hindi text was filtered out automatically.</li>
+    <li><strong>Question Parsing:</strong> A custom parser identified question blocks (Q.No markers), extracted the English question text, and isolated the four options from surrounding translated text.</li>
+    <li><strong>Subject Categorization:</strong> Each question was matched against a taxonomy of 82 sub-topics across 8 subjects using keyword-based scoring. The best-matching sub-topic was assigned to each question.</li>
+    <li><strong>Website Generation:</strong> A multi-page static website was generated with interactive charts, expandable sub-topic sections, and full question listings.</li>
+  </ol>
+
+  <h2 class="section-title" style="margin-top: 2.5rem;">Taxonomy</h2>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem;">
+    The categorization taxonomy covers the standard SSC CGL General Awareness syllabus:
+  </p>
+  <div class="subject-grid" style="margin-top: 1.5rem;">
+    <a href="history.html" class="subject-card" style="--card-color: #dc2626; --card-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">🏛️</div>
+        <div class="subject-count">209 Qs</div>
+      </div>
+      <h3>History</h3>
+      <p>Ancient, Medieval, Modern Indian History &amp; World History</p>
+      <div class="subject-card-meta">
+        <span>📊 25 sub-topics</span>
+      </div>
+    </a>
+    <a href="geography.html" class="subject-card" style="--card-color: #059669; --card-gradient: linear-gradient(135deg, #059669 0%, #065f46 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">🌍</div>
+        <div class="subject-count">199 Qs</div>
+      </div>
+      <h3>Geography</h3>
+      <p>Physical, Indian &amp; World Geography</p>
+      <div class="subject-card-meta">
+        <span>📊 11 sub-topics</span>
+      </div>
+    </a>
+    <a href="polity.html" class="subject-card" style="--card-color: #7c3aed; --card-gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">⚖️</div>
+        <div class="subject-count">116 Qs</div>
+      </div>
+      <h3>Polity</h3>
+      <p>Constitution, Parliament, Judiciary &amp; Governance</p>
+      <div class="subject-card-meta">
+        <span>📊 12 sub-topics</span>
+      </div>
+    </a>
+    <a href="economics.html" class="subject-card" style="--card-color: #d97706; --card-gradient: linear-gradient(135deg, #d97706 0%, #92400e 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">💰</div>
+        <div class="subject-count">63 Qs</div>
+      </div>
+      <h3>Economics</h3>
+      <p>Indian Economy, Banking, Budget &amp; Finance</p>
+      <div class="subject-card-meta">
+        <span>📊 7 sub-topics</span>
+      </div>
+    </a>
+    <a href="science.html" class="subject-card" style="--card-color: #0891b2; --card-gradient: linear-gradient(135deg, #0891b2 0%, #155e75 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">🔬</div>
+        <div class="subject-count">74 Qs</div>
+      </div>
+      <h3>General Science</h3>
+      <p>Physics, Chemistry &amp; Biology</p>
+      <div class="subject-card-meta">
+        <span>📊 11 sub-topics</span>
+      </div>
+    </a>
+    <a href="static-gk.html" class="subject-card" style="--card-color: #be185d; --card-gradient: linear-gradient(135deg, #be185d 0%, #831843 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">📚</div>
+        <div class="subject-count">187 Qs</div>
+      </div>
+      <h3>Static GK</h3>
+      <p>Books, Sports, Awards, Festivals, Dance, Music &amp; More</p>
+      <div class="subject-card-meta">
+        <span>📊 8 sub-topics</span>
+      </div>
+    </a>
+    <a href="current-affairs.html" class="subject-card" style="--card-color: #1d4ed8; --card-gradient: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">📰</div>
+        <div class="subject-count">105 Qs</div>
+      </div>
+      <h3>Current Affairs</h3>
+      <p>Recent Events, Schemes, Sports, Awards &amp; Rankings</p>
+      <div class="subject-card-meta">
+        <span>📊 7 sub-topics</span>
+      </div>
+    </a>
+    <a href="uncategorized.html" class="subject-card" style="--card-color: #6b7280; --card-gradient: linear-gradient(135deg, #6b7280 0%, #374151 100%);">
+      <div class="subject-card-header">
+        <div class="subject-icon">❓</div>
+        <div class="subject-count">12 Qs</div>
+      </div>
+      <h3>Uncategorized</h3>
+      <p>Questions that could not be auto-categorized</p>
+      <div class="subject-card-meta">
+        <span>📊 1 sub-topics</span>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="section-title" style="margin-top: 2.5rem;">Important Notes</h2>
+  <ul style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
+    <li>Only the <strong>English version</strong> of questions is included (Hindi text filtered out).</li>
+    <li>OCR extraction may introduce minor typos in question text; refer to the original PDF for verbatim text.</li>
+    <li>Categorization is <strong>keyword-based and heuristic</strong> - a small percentage of questions may be misclassified.</li>
+    <li>Questions are deduplicated by question number + first 100 characters, so questions appearing in multiple shifts are counted once.</li>
+    <li>"Not Answered" markers from the original PDF are preserved in the data but not displayed prominently.</li>
+    <li>Source: SSC CGL Tier 1 General Awareness (PART-B), Q.No 26-50 per shift, ~80 shifts in Sep-Oct 2025.</li>
+  </ul>
+
+  <h2 class="section-title" style="margin-top: 2.5rem;">Source File</h2>
+  <p style="font-size: 1.05rem; color: var(--text-muted);">
+    Original PDF: <a href="https://drive.google.com/file/d/1no_Hvs2e3aBy-VrHvecGiYZixGHVuUUw/view" target="_blank" style="color: var(--primary);">Google Drive link</a><br>
+    Total pages: 488 &middot; File size: ~48 MB
+  </p>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>GK GS Analysis</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About this Project</a>
+    </div>
+    <div class="footer-section">
+      <h4>Subjects</h4>
+      <a href="history.html">History</a>
+      <a href="geography.html">Geography</a>
+      <a href="polity.html">Polity</a>
+      <a href="economics.html">Economics</a>
+    </div>
+    <div class="footer-section">
+      <h4>More Subjects</h4>
+      <a href="science.html">General Science</a>
+      <a href="static-gk.html">Static GK</a>
+      <a href="current-affairs.html">Current Affairs</a>
+    </div>
+    <div class="footer-section">
+      <h4>Source</h4>
+      <p style="font-size:0.85rem; color:rgba(255,255,255,0.7);">SSC CGL Tier 1<br>General Awareness<br>Sep-Oct 2025</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Generated from official SSC CGL Tier 1 question papers &middot; Analysis for educational purposes only
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
