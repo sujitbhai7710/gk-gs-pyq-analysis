@@ -1,0 +1,114 @@
+name: Gemini OCR Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_page:
+        description: 'Start page (1-indexed, 0 = all pages)'
+        required: false
+        default: '0'
+      end_page:
+        description: 'End page (0 = last page)'
+        required: false
+        default: '0'
+
+jobs:
+  ocr-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies (Poppler for PDF)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-genai pdf2image pypdf pillow
+
+      - name: Verify input.pdf exists
+        run: |
+          if [ ! -f "input.pdf" ]; then
+            echo "❌ input.pdf not found in repo root!"
+            echo "   Please upload input.pdf to the repository."
+            exit 1
+          fi
+          echo "✓ input.pdf found"
+          ls -lh input.pdf
+
+      - name: Execute Gemini Vision OCR
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          START_PAGE: ${{ github.event.inputs.start_page || '0' }}
+          END_PAGE: ${{ github.event.inputs.end_page || '0' }}
+        run: |
+          # If start_page is 0, process all pages
+          if [ "$START_PAGE" = "0" ]; then
+            python process_pdf.py input.pdf final_output.txt
+          else
+            START_PAGE=$START_PAGE END_PAGE=$END_PAGE python process_pdf.py input.pdf final_output.txt
+          fi
+
+      - name: Show output stats
+        run: |
+          if [ -f "final_output.txt" ]; then
+            echo "✓ Output file created"
+            ls -lh final_output.txt
+            echo ""
+            echo "First 50 lines:"
+            head -50 final_output.txt
+            echo ""
+            echo "Total characters: $(wc -c < final_output.txt)"
+            echo "Total lines: $(wc -l < final_output.txt)"
+          else
+            echo "❌ Output file not created!"
+            exit 1
+          fi
+
+      - name: Parse questions into JSON
+        run: |
+          python parse_questions.py final_output.txt questions.json
+          if [ -f "questions.json" ]; then
+            echo "✓ questions.json created"
+            ls -lh questions.json
+            echo "Question count:"
+            python -c "import json; d=json.load(open('questions.json')); print(f'  Total: {len(d)} questions')"
+          fi
+
+      - name: Upload final_output.txt as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gemini-ocr-output
+          path: final_output.txt
+          retention-days: 90
+
+      - name: Upload questions.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: parsed-questions
+          path: questions.json
+          retention-days: 90
+
+      - name: Commit output back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add final_output.txt questions.json || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update OCR output via Gemini [skip ci]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

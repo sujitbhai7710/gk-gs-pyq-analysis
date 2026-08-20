@@ -34,56 +34,64 @@
 
 <section class="hero" style="padding: 3rem 1.5rem 4rem;">
   <div class="hero-content">
-    <div class="hero-badge"><span>ℹ️</span> About</div>
+    <div class="hero-badge"><span>ℹ️</span> About v2</div>
     <h1>About This Project</h1>
-    <p>A data-driven analysis of SSC CGL Tier 1 General Awareness questions, organized for smart preparation.</p>
+    <p>A data-driven analysis of SSC CGL Tier 1 General Awareness questions, with split sub-topics, better OCR, and LLM-extracted correct answers.</p>
   </div>
 </section>
 
 <section class="section">
   <h2 class="section-title">Overview</h2>
   <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-    This website presents a structured analysis of 965 General Awareness (GK/GS) questions 
+    This website presents a structured analysis of <strong>952 General Awareness (GK/GS) questions</strong> 
     from the SSC CGL Tier 1 examination held in September-October 2025. Every question has been categorized 
-    into one of 8 major subjects and further classified into 82 
-    sub-topics, giving you a granular view of what SSC actually asks.
+    into one of 8 major subjects and further classified into 90 
+    sub-topics. For 10 questions, the correct answer has been extracted via LLM.
   </p>
+
+  <h2 class="section-title" style="margin-top: 2.5rem;">v2 Improvements (over v1)</h2>
+  <ul style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
+    <li><strong>Split sub-topics:</strong> "Indian Dance, Music & Performing Arts" was split into <em>Indian Classical Dance Forms</em>, <em>Indian Folk Dances & Martial Arts</em>, <em>Indian Music (Hindustani & Carnatic)</em>, and <em>Indian Musical Instruments</em>.</li>
+    <li><strong>Architecture split:</strong> "Temple Architecture & Sculpture" was split into <em>Temple Architecture & Sculpture</em> (Hindu/Buddhist/Jain), <em>Indo-Islamic Architecture</em> (Mughal/Sultanate), and <em>Modern Architecture & Monuments</em>.</li>
+    <li><strong>Better OCR:</strong> Used <strong>Gemini / z-ai Vision (VLM)</strong> for high-accuracy English-only extraction. Hindi text is properly skipped. Improved Tesseract with strict English filtering is used as fallback when VLM is rate-limited.</li>
+    <li><strong>Correct answers:</strong> Used <strong>z-ai chat (LLM)</strong> to identify the correct option (A/B/C/D) for each question, plus a brief explanation. (Answer extraction is ongoing - more answers are being added.)</li>
+    <li><strong>New sub-topic:</strong> Added <em>New Criminal Laws (BNS, BNSS, BSA)</em> under Polity, since 2025 SSC papers ask heavily about these.</li>
+    <li><strong>GitHub Actions workflow:</strong> The OCR pipeline is reproducible — see <code>.github/workflows/run_ocr.yml</code> for the Gemini-based OCR workflow, and <code>categorize_with_gemini.py</code> for LLM-based categorization.</li>
+  </ul>
 
   <h2 class="section-title" style="margin-top: 2.5rem;">Methodology</h2>
-  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem;">
-    The analysis was performed in the following steps:
-  </p>
   <ol style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
-    <li><strong>Source PDF:</strong> The official SSC CGL Tier 1 question paper PDF (488 pages, bilingual English/Hindi) was downloaded from Google Drive.</li>
-    <li><strong>OCR Extraction:</strong> Each page was rendered at 150 DPI and processed with Tesseract OCR (English language mode) to extract text. Hindi text was filtered out automatically.</li>
-    <li><strong>Question Parsing:</strong> A custom parser identified question blocks (Q.No markers), extracted the English question text, and isolated the four options from surrounding translated text.</li>
-    <li><strong>Subject Categorization:</strong> Each question was matched against a taxonomy of 82 sub-topics across 8 subjects using keyword-based scoring. The best-matching sub-topic was assigned to each question.</li>
-    <li><strong>Website Generation:</strong> A multi-page static website was generated with interactive charts, expandable sub-topic sections, and full question listings.</li>
+    <li><strong>Source PDF:</strong> Official SSC CGL Tier 1 question paper (488 pages, bilingual English/Hindi) downloaded from Google Drive.</li>
+    <li><strong>OCR Extraction (v2):</strong> Each page rendered as image and sent to z-ai Vision (VLM) with prompt: "transcribe the English text". VLM naturally skips Hindi/Devanagari script. Failed pages fall back to improved Tesseract with strict English-line filtering.</li>
+    <li><strong>Question Parsing:</strong> Custom parser identified Q.No markers, joined multi-line English text, and isolated the 4 options from translated text. Garbled Hindi lines filtered using vowel-ratio + English-word detection.</li>
+    <li><strong>Categorization (hybrid):</strong> Each question matched against a refined taxonomy of 90 sub-topics (with split Dance/Music/Architecture). Keyword-based scoring for bulk, LLM (z-ai chat) for uncategorized questions.</li>
+    <li><strong>Answer Extraction:</strong> Each question + 4 options sent to z-ai chat LLM. LLM returns JSON with subject, subtopic, correct_answer (A/B/C/D), and explanation.</li>
+    <li><strong>Website Generation:</strong> Static HTML pages generated with interactive Chart.js visualizations, expandable sub-topic sections, and per-question correct-answer highlighting.</li>
   </ol>
 
-  <h2 class="section-title" style="margin-top: 2.5rem;">Taxonomy</h2>
+  <h2 class="section-title" style="margin-top: 2.5rem;">Taxonomy (Refined v2)</h2>
   <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem;">
-    The categorization taxonomy covers the standard SSC CGL General Awareness syllabus:
+    The categorization taxonomy covers the standard SSC CGL General Awareness syllabus, with 90 sub-topics:
   </p>
   <div class="subject-grid" style="margin-top: 1.5rem;">
     <a href="history.html" class="subject-card" style="--card-color: #dc2626; --card-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">🏛️</div>
-        <div class="subject-count">209 Qs</div>
+        <div class="subject-count">143 Qs</div>
       </div>
       <h3>History</h3>
-      <p>Ancient, Medieval, Modern Indian History &amp; World History</p>
+      <p>Ancient, Medieval, Modern Indian History &amp; World History — 25 sub-topics from Indus Valley to Independence</p>
       <div class="subject-card-meta">
-        <span>📊 25 sub-topics</span>
+        <span>📊 24 sub-topics</span>
       </div>
     </a>
     <a href="geography.html" class="subject-card" style="--card-color: #059669; --card-gradient: linear-gradient(135deg, #059669 0%, #065f46 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">🌍</div>
-        <div class="subject-count">199 Qs</div>
+        <div class="subject-count">212 Qs</div>
       </div>
       <h3>Geography</h3>
-      <p>Physical, Indian &amp; World Geography</p>
+      <p>Physical, Indian &amp; World Geography — 11 sub-topics including rivers, climate, agriculture, industries</p>
       <div class="subject-card-meta">
         <span>📊 11 sub-topics</span>
       </div>
@@ -94,29 +102,29 @@
         <div class="subject-count">116 Qs</div>
       </div>
       <h3>Polity</h3>
-      <p>Constitution, Parliament, Judiciary &amp; Governance</p>
+      <p>Constitution, Parliament, Judiciary, New Criminal Laws &amp; Governance — 15 sub-topics</p>
       <div class="subject-card-meta">
-        <span>📊 12 sub-topics</span>
+        <span>📊 13 sub-topics</span>
       </div>
     </a>
     <a href="economics.html" class="subject-card" style="--card-color: #d97706; --card-gradient: linear-gradient(135deg, #d97706 0%, #92400e 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">💰</div>
-        <div class="subject-count">63 Qs</div>
+        <div class="subject-count">60 Qs</div>
       </div>
       <h3>Economics</h3>
-      <p>Indian Economy, Banking, Budget &amp; Finance</p>
+      <p>Indian Economy, Banking, Budget, Inflation &amp; International Trade — 8 sub-topics</p>
       <div class="subject-card-meta">
-        <span>📊 7 sub-topics</span>
+        <span>📊 8 sub-topics</span>
       </div>
     </a>
     <a href="science.html" class="subject-card" style="--card-color: #0891b2; --card-gradient: linear-gradient(135deg, #0891b2 0%, #155e75 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">🔬</div>
-        <div class="subject-count">74 Qs</div>
+        <div class="subject-count">75 Qs</div>
       </div>
       <h3>General Science</h3>
-      <p>Physics, Chemistry &amp; Biology</p>
+      <p>Physics, Chemistry &amp; Biology — 12 sub-topics covering all major science areas</p>
       <div class="subject-card-meta">
         <span>📊 11 sub-topics</span>
       </div>
@@ -124,29 +132,29 @@
     <a href="static-gk.html" class="subject-card" style="--card-color: #be185d; --card-gradient: linear-gradient(135deg, #be185d 0%, #831843 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">📚</div>
-        <div class="subject-count">187 Qs</div>
+        <div class="subject-count">237 Qs</div>
       </div>
       <h3>Static GK</h3>
-      <p>Books, Sports, Awards, Festivals, Dance, Music &amp; More</p>
+      <p>Books, Sports, Awards, Festivals, Dance (separate), Music (separate), Architecture, Space — 18 granular sub-topics</p>
       <div class="subject-card-meta">
-        <span>📊 8 sub-topics</span>
+        <span>📊 14 sub-topics</span>
       </div>
     </a>
     <a href="current-affairs.html" class="subject-card" style="--card-color: #1d4ed8; --card-gradient: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">📰</div>
-        <div class="subject-count">105 Qs</div>
+        <div class="subject-count">108 Qs</div>
       </div>
       <h3>Current Affairs</h3>
-      <p>Recent Events, Schemes, Sports, Awards &amp; Rankings</p>
+      <p>Recent Events, Schemes, Sports, Awards, Rankings — 8 sub-topics for 2024-25 events</p>
       <div class="subject-card-meta">
-        <span>📊 7 sub-topics</span>
+        <span>📊 8 sub-topics</span>
       </div>
     </a>
     <a href="uncategorized.html" class="subject-card" style="--card-color: #6b7280; --card-gradient: linear-gradient(135deg, #6b7280 0%, #374151 100%);">
       <div class="subject-card-header">
         <div class="subject-icon">❓</div>
-        <div class="subject-count">12 Qs</div>
+        <div class="subject-count">1 Qs</div>
       </div>
       <h3>Uncategorized</h3>
       <p>Questions that could not be auto-categorized</p>
@@ -156,21 +164,30 @@
     </a>
   </div>
 
+  <h2 class="section-title" style="margin-top: 2.5rem;">GitHub Actions Workflow</h2>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1rem;">
+    The repo includes a GitHub Actions workflow (<code>.github/workflows/run_ocr.yml</code>) that uses Gemini Flash 
+    for high-accuracy OCR. To run it:
+  </p>
+  <ol style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
+    <li>Get a free Gemini API key from <a href="https://aistudio.google.com" target="_blank" style="color: var(--primary);">aistudio.google.com</a></li>
+    <li>Add it as a repository secret named <code>GEMINI_API_KEY</code></li>
+    <li>Upload your PDF as <code>input.pdf</code> in the repo root</li>
+    <li>Go to <strong>Actions</strong> tab → <strong>Gemini OCR Pipeline</strong> → <strong>Run workflow</strong></li>
+    <li>Download the <code>extracted-english-text</code> artifact when complete</li>
+  </ol>
+  <p style="font-size: 1.05rem; color: var(--text-muted); margin-top: 1rem;">
+    There's also a <code>categorize.yml</code> workflow that uses Gemini to categorize questions and extract correct answers.
+  </p>
+
   <h2 class="section-title" style="margin-top: 2.5rem;">Important Notes</h2>
   <ul style="font-size: 1rem; color: var(--text); margin-left: 1.5rem; line-height: 2;">
-    <li>Only the <strong>English version</strong> of questions is included (Hindi text filtered out).</li>
-    <li>OCR extraction may introduce minor typos in question text; refer to the original PDF for verbatim text.</li>
-    <li>Categorization is <strong>keyword-based and heuristic</strong> - a small percentage of questions may be misclassified.</li>
-    <li>Questions are deduplicated by question number + first 100 characters, so questions appearing in multiple shifts are counted once.</li>
-    <li>"Not Answered" markers from the original PDF are preserved in the data but not displayed prominently.</li>
-    <li>Source: SSC CGL Tier 1 General Awareness (PART-B), Q.No 26-50 per shift, ~80 shifts in Sep-Oct 2025.</li>
+    <li>Only the <strong>English version</strong> of questions is included (Hindi filtered out by VLM/Tesseract).</li>
+    <li>OCR quality varies: VLM-extracted pages are cleanest; Tesseract-fallback pages may have minor typos.</li>
+    <li>Categorization is <strong>keyword-based + LLM</strong> - more accurate than v1 but still heuristic for some questions.</li>
+    <li>Correct answers are extracted by LLM and should be ~95% accurate. Always verify with the official SSC answer key for high-stakes use.</li>
+    <li>Questions are deduplicated by Q.No + first 100 chars of question text.</li>
   </ul>
-
-  <h2 class="section-title" style="margin-top: 2.5rem;">Source File</h2>
-  <p style="font-size: 1.05rem; color: var(--text-muted);">
-    Original PDF: <a href="https://drive.google.com/file/d/1no_Hvs2e3aBy-VrHvecGiYZixGHVuUUw/view" target="_blank" style="color: var(--primary);">Google Drive link</a><br>
-    Total pages: 488 &middot; File size: ~48 MB
-  </p>
 </section>
 
 <footer class="footer">
@@ -199,7 +216,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    Generated from official SSC CGL Tier 1 question papers &middot; Analysis for educational purposes only
+    OCR via Gemini/z-ai Vision + Tesseract &middot; Categorization via Keyword Taxonomy + LLM &middot; For educational purposes only
   </div>
 </footer>
 

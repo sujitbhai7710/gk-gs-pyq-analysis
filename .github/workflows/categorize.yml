@@ -1,0 +1,89 @@
+name: Categorize Questions with Gemini
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_file:
+        description: 'Input JSON file (questions.json or gemini-ocr-output artifact)'
+        required: false
+        default: 'questions.json'
+
+jobs:
+  categorize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-genai
+
+      - name: Verify input file
+        run: |
+          if [ ! -f "${{ github.event.inputs.input_file }}" ]; then
+            echo "❌ ${{ github.event.inputs.input_file }} not found!"
+            echo "Run the OCR workflow first, or upload the file manually."
+            exit 1
+          fi
+          echo "✓ Input file found"
+          ls -lh ${{ github.event.inputs.input_file }}
+
+      - name: Run Gemini Categorization
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python categorize_with_gemini.py ${{ github.event.inputs.input_file }} categorized_with_answers.json
+
+      - name: Show stats
+        run: |
+          if [ -f "categorized_with_answers.json" ]; then
+            echo "✓ Categorization complete"
+            ls -lh categorized_with_answers.json
+            python -c "
+            import json
+            from collections import Counter
+            with open('categorized_with_answers.json') as f:
+                qs = json.load(f)
+            print(f'Total questions: {len(qs)}')
+            print()
+            print('Subject distribution:')
+            subs = Counter(q.get('subject','?') for q in qs)
+            for s, c in subs.most_common():
+                print(f'  {s}: {c}')
+            print()
+            print('Top 15 sub-topics:')
+            st = Counter(q.get('subtopic','?') for q in qs)
+            for s, c in st.most_common(15):
+                print(f'  {s}: {c}')
+            "
+          fi
+
+      - name: Upload categorized JSON as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: categorized-questions
+          path: categorized_with_answers.json
+          retention-days: 90
+
+      - name: Commit output back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add categorized_with_answers.json || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update categorized questions via Gemini [skip ci]"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
