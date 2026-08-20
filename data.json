@@ -6,7 +6,7 @@
     "source": "SSC CGL Tier 1 (Sep-Oct 2025) - General Awareness",
     "exam": "SSC CGL 2025",
     "note": "Questions extracted from official SSC CGL Tier 1 question papers (Sep-Oct 2025). OCR via Gemini/z-ai vision (VLM) + improved Tesseract fallback. Categorization via keyword taxonomy + LLM. Correct answers extracted via LLM where available.",
-    "has_answers": 10
+    "has_answers": 50
   },
   "subjects": {
     "History": {
@@ -242,7 +242,7 @@
         {
           "name": "Independence, Partition & Post-Independence India",
           "count": 15,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 40,
@@ -255,8 +255,8 @@
               ],
               "answered": true,
               "page": 9,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Article 300A is a constitutional legal right that permits deprivation of property only by authority of law."
             },
             {
               "qno": 50,
@@ -269,8 +269,8 @@
               ],
               "answered": true,
               "page": 14,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Fundamental Rights are justiciable (enforceable by courts), while DPSPs are not."
             },
             {
               "qno": 48,
@@ -802,7 +802,7 @@
         {
           "name": "Gupta & Post-Gupta Period",
           "count": 12,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 27,
@@ -815,8 +815,8 @@
               ],
               "answered": false,
               "page": 16,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Chandragupta Maurya established a highly centralized administrative system with a strong central authority."
             },
             {
               "qno": 28,
@@ -2158,7 +2158,7 @@
         {
           "name": "Sports & Games",
           "count": 72,
-          "with_answer": 2,
+          "with_answer": 4,
           "questions": [
             {
               "qno": 29,
@@ -2185,8 +2185,8 @@
               ],
               "answered": false,
               "page": 18,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "Mary Kom won her most recent international gold medal at the President's Cup in Indonesia."
             },
             {
               "qno": 30,
@@ -2199,8 +2199,8 @@
               ],
               "answered": true,
               "page": 32,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "Variations in ball weight and circumference affect bounce, swing, and fairness on standard pitches."
             },
             {
               "qno": 35,
@@ -3098,7 +3098,7 @@
         {
           "name": "Festivals & Fairs of India",
           "count": 29,
-          "with_answer": 1,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 27,
@@ -3120,8 +3120,8 @@
               "options": [],
               "answered": true,
               "page": 16,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "Options are not provided to answer the question."
             },
             {
               "qno": 29,
@@ -3480,7 +3480,7 @@
         {
           "name": "Books & Authors",
           "count": 29,
-          "with_answer": 0,
+          "with_answer": 3,
           "questions": [
             {
               "qno": 33,
@@ -3493,8 +3493,8 @@
               ],
               "answered": true,
               "page": 5,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "The book focuses on the human and ecological consequences of drought in India."
             },
             {
               "qno": 34,
@@ -3507,8 +3507,8 @@
               ],
               "answered": true,
               "page": 20,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "The Adventures of Kakababu is a Bengali adventure novel featuring detective Kakababu, not a political satire or autobiography."
             },
             {
               "qno": 33,
@@ -3521,8 +3521,8 @@
               ],
               "answered": true,
               "page": 33,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "'Hot Stage' is a collection of modern Indian plays on social issues."
             },
             {
               "qno": 33,
@@ -3900,7 +3900,7 @@
         {
           "name": "Space & Defence",
           "count": 27,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 35,
@@ -3913,8 +3913,8 @@
               ],
               "answered": true,
               "page": 6,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "The Crew Escape System is designed to save the crew by jettisoning the crew module in case of a launch failure."
             },
             {
               "qno": 50,
@@ -5248,7 +5248,7 @@
         {
           "name": "Indo-Islamic Architecture",
           "count": 4,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 26,
@@ -5256,8 +5256,8 @@
               "options": [],
               "answered": true,
               "page": 15,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "No options provided to select from."
             },
             {
               "qno": 28,
@@ -5372,7 +5372,7 @@
         {
           "name": "Science & Technology Current Developments",
           "count": 2,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 39,
@@ -5383,8 +5383,8 @@
               ],
               "answered": true,
               "page": 22,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "Generative design aims to optimize designs for specific goals like minimizing mass while maximizing strength in aerospace."
             },
             {
               "qno": 35,
@@ -5439,7 +5439,7 @@
         {
           "name": "Sports Current Affairs",
           "count": 45,
-          "with_answer": 1,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 30,
@@ -5469,8 +5469,8 @@
               ],
               "answered": true,
               "page": 20,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Piyush Goyal addressed a special session in 2025 on 'Environment, COP-30, and Global Health'."
             },
             {
               "qno": 36,
@@ -6028,7 +6028,7 @@
         {
           "name": "National Affairs & Government Schemes",
           "count": 34,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 48,
@@ -6041,8 +6041,8 @@
               ],
               "answered": true,
               "page": 13,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "The NFCS aims to provide tailored climate information for various sectors like agriculture and disaster management."
             },
             {
               "qno": 31,
@@ -6055,8 +6055,8 @@
               ],
               "answered": true,
               "page": 32,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Sheetal Devi won India's first-ever Paralympic gold in archery at Paris 2024."
             },
             {
               "qno": 38,
@@ -6950,7 +6950,7 @@
         {
           "name": "World Geography (Continents, Countries, Capitals)",
           "count": 66,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 46,
@@ -6963,8 +6963,8 @@
               ],
               "answered": true,
               "page": 26,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "London and New York retained their top positions in the Global Cities Index 2025."
             },
             {
               "qno": 32,
@@ -6977,8 +6977,8 @@
               ],
               "answered": true,
               "page": 33,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "The BRICS Ministers of Foreign Affairs meeting was held in Pretoria, South Africa, on 4 June 2018."
             },
             {
               "qno": 39,
@@ -8425,7 +8425,7 @@
         {
           "name": "Physical Geography (Geomorphology)",
           "count": 23,
-          "with_answer": 0,
+          "with_answer": 4,
           "questions": [
             {
               "qno": 34,
@@ -8438,8 +8438,8 @@
               ],
               "answered": false,
               "page": 6,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Both statements correctly describe the formation and characteristics of hanging valleys."
             },
             {
               "qno": 49,
@@ -8450,8 +8450,8 @@
               ],
               "answered": true,
               "page": 13,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Argon is primarily produced through the radioactive decay of potassium-40 (K-40) in the Earth's crust."
             },
             {
               "qno": 36,
@@ -8463,8 +8463,8 @@
               ],
               "answered": true,
               "page": 21,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "The correct answer is not provided in the options; the backward rotation of slipping material is characteristic of a slump, not listed here."
             },
             {
               "qno": 42,
@@ -8477,8 +8477,8 @@
               ],
               "answered": true,
               "page": 24,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Gravitational acceleration is inversely proportional to the square of the radius, so a 1% decrease in radius causes a ~2% increase in 'g'."
             },
             {
               "qno": 35,
@@ -9012,7 +9012,7 @@
         {
           "name": "Indian Rivers & Drainage System",
           "count": 16,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 32,
@@ -9025,8 +9025,8 @@
               ],
               "answered": false,
               "page": 19,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Statement 1 is correct, but statement 2 is incorrect as the Ganga Water Treaty allows for sharing during the lean season, not the entire year."
             },
             {
               "qno": 37,
@@ -9255,7 +9255,7 @@
         {
           "name": "Climate, Monsoon & Weather",
           "count": 16,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 49,
@@ -9268,8 +9268,8 @@
               ],
               "answered": true,
               "page": 27,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "D",
+              "explanation": "Building sea walls and elevating buildings are measures to adapt to climate change impacts."
             },
             {
               "qno": 34,
@@ -9279,8 +9279,8 @@
               ],
               "answered": true,
               "page": 33,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "The question is incomplete as only option A is provided."
             },
             {
               "qno": 50,
@@ -9488,7 +9488,7 @@
         {
           "name": "Indian Transport & Communication",
           "count": 12,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 38,
@@ -9499,8 +9499,8 @@
               ],
               "answered": true,
               "page": 8,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "The electron transport chain is the primary site of ATP production in cellular respiration."
             },
             {
               "qno": 26,
@@ -9890,7 +9890,7 @@
         {
           "name": "Map Work & Geographical Features",
           "count": 1,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 47,
@@ -9902,8 +9902,8 @@
               ],
               "answered": true,
               "page": 26,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "No correct option provided as light industries do not process heavy ores, produce large-scale machinery, or require bulky raw materials."
             }
           ]
         }
@@ -9922,7 +9922,7 @@
         {
           "name": "New Criminal Laws (BNS, BNSS, BSA)",
           "count": 20,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 42,
@@ -9935,8 +9935,8 @@
               ],
               "answered": true,
               "page": 10,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "The BSA places emphasis on technology for authenticating digital and electronic evidence."
             },
             {
               "qno": 43,
@@ -9944,8 +9944,8 @@
               "options": [],
               "answered": true,
               "page": 24,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "The question is invalid as it does not provide any options for the answer."
             },
             {
               "qno": 43,
@@ -10193,7 +10193,7 @@
         {
           "name": "Welfare Schemes & Government Policies",
           "count": 17,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 43,
@@ -10210,8 +10210,8 @@
               "options": [],
               "answered": false,
               "page": 25,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "No options provided to determine the correct answer."
             },
             {
               "qno": 43,
@@ -10866,7 +10866,7 @@
         {
           "name": "Federalism & Centre-State Relations",
           "count": 12,
-          "with_answer": 0,
+          "with_answer": 2,
           "questions": [
             {
               "qno": 39,
@@ -10878,8 +10878,8 @@
               ],
               "answered": true,
               "page": 8,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B, C, A",
+              "explanation": "The correct chronological order is the States Reorganisation Act, followed by the first Central Zonal Council meeting, and then the Eastern Zonal Council meeting."
             },
             {
               "qno": 47,
@@ -10901,8 +10901,8 @@
               ],
               "answered": true,
               "page": 25,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "Incomplete question with missing Assertion (A) and only Reason (R) provided."
             },
             {
               "qno": 44,
@@ -11017,7 +11017,7 @@
         {
           "name": "Constitutional Amendments",
           "count": 9,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 41,
@@ -11031,8 +11031,8 @@
               ],
               "answered": true,
               "page": 23,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "D",
+              "explanation": "Article 270 covers tax sharing between the Union and States, including GST, but not the GST Compensation Cess."
             },
             {
               "qno": 50,
@@ -11143,7 +11143,7 @@
         {
           "name": "Salient Features of the Constitution",
           "count": 7,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 36,
@@ -11156,8 +11156,8 @@
               ],
               "answered": true,
               "page": 7,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "Justice Sanjiv Khanna is the 50th CJI, succeeded DY Chandrachud, and served as CJI in 2024."
             },
             {
               "qno": 40,
@@ -11516,7 +11516,7 @@
         {
           "name": "Making of the Indian Constitution",
           "count": 1,
-          "with_answer": 0,
+          "with_answer": 1,
           "questions": [
             {
               "qno": 31,
@@ -11529,8 +11529,8 @@
               ],
               "answered": true,
               "page": 18,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "The Regulating Act of 1773 introduced changes in the Company's constitution at home and territorial control in India."
             }
           ]
         },
@@ -11892,7 +11892,7 @@
         {
           "name": "Population, Poverty & Unemployment",
           "count": 16,
-          "with_answer": 0,
+          "with_answer": 3,
           "questions": [
             {
               "qno": 37,
@@ -11905,8 +11905,8 @@
               ],
               "answered": true,
               "page": 7,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "The NPP 2000 aims to reduce the infant mortality rate to below 30 per 1000 live births."
             },
             {
               "qno": 37,
@@ -11917,8 +11917,8 @@
               ],
               "answered": true,
               "page": 21,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "B",
+              "explanation": "Population density is defined as the number of people per unit of area, typically per square kilometer."
             },
             {
               "qno": 38,
@@ -11931,8 +11931,8 @@
               ],
               "answered": true,
               "page": 22,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "C",
+              "explanation": "Assertion A is true, but Reason R is false because reproductive behavior does not change instantly with healthcare improvements."
             },
             {
               "qno": 37,
@@ -12443,7 +12443,7 @@
         {
           "name": "Physics - Mechanics & Motion",
           "count": 14,
-          "with_answer": 0,
+          "with_answer": 3,
           "questions": [
             {
               "qno": 41,
@@ -12451,8 +12451,8 @@
               "options": [],
               "answered": true,
               "page": 9,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "N/A",
+              "explanation": "The question is incomplete as no options are provided."
             },
             {
               "qno": 29,
@@ -12465,8 +12465,8 @@
               ],
               "answered": true,
               "page": 17,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Statement 1 is correct as maximum momentum is built by running, but statement 2 is incorrect as the athlete pushes off with the stronger foot."
             },
             {
               "qno": 40,
@@ -12478,8 +12478,8 @@
               ],
               "answered": true,
               "page": 23,
-              "correct_answer": "",
-              "explanation": ""
+              "correct_answer": "A",
+              "explanation": "Lysosomes are organelles responsible for breaking down waste materials and cellular debris through intracellular digestion."
             },
             {
               "qno": 41,
